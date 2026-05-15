@@ -1,0 +1,18 @@
+services:
+  tabara-group:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: tabara-group
+    restart: always
+    environment:
+      - VIRTUAL_HOST=tabaragroup.sn,www.tabaragroup.sn
+      - VIRTUAL_PORT=3000
+      - LETSENCRYPT_HOST=tabaragroup.sn,www.tabaragroup.sn
+      - RESEND_API_KEY=${RESEND_API_KEY}
+    networks:
+      - nginx-proxy
+
+networks:
+  nginx-proxy:
+    external: true
