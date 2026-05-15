@@ -1,14 +1,16 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
+  output: 'standalone',
   typescript: {
     ignoreBuildErrors: true,
   },
   images: {
     unoptimized: true,
   },
-  turbopack: {
-    root: '/Users/macbook_1/Downloads/Tabara Group',
-  },
 }
+
+export default nextConfig
+
+export default nextConfig
 
 export default nextConfig
