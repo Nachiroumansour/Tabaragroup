@@ -18,6 +18,11 @@ jobs:
           username: ${{ secrets.VPS_USER }}
           key: ${{ secrets.VPS_SSH_KEY }}
           script: |
-            cd /path/to/your/project/tabara-group
+            mkdir -p /srv/projects
+            cd /srv/projects
+            if [ ! -d "tabara-group" ]; then
+              git clone https://github.com/Nachiroumansour/Tabaragroup.git tabara-group
+            fi
+            cd tabara-group
             git pull origin main
             docker compose up -d --build
